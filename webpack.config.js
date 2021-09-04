@@ -1,5 +1,6 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const NodemonPlugin = require('nodemon-webpack-plugin');
 
 module.exports = {
     entry:{
@@ -10,7 +11,8 @@ module.exports = {
     },
     plugins: [new MiniCssExtractPlugin({
         filename: '[name].css'
-    })],
+    }),
+    ],
     module:{
         rules:[
             {
@@ -24,4 +26,8 @@ module.exports = {
             },
         ],
     },
+    watchOptions:{
+        ignored: ["/node_modules/","/public"],
+    },
+    stats: { warnings: false },
 };
