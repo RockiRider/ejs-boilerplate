@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const indexRouter = require('./routes/index');
 const path = require('path');
@@ -8,15 +9,17 @@ const hostname = "localhost";
 const port = 3000;
 const app = express();
 
-//If Development
-const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(__dirname + "public");
-liveReloadServer.server.once("connection", () => {
-    setTimeout(() => {
-        liveReloadServer.refresh("/");
-    }, 50);
-});
-app.use(connectLiveReload());
+if (process.env.NODE_ENV == "Development"){
+    const liveReloadServer = livereload.createServer();
+    liveReloadServer.watch(__dirname + "public");
+    liveReloadServer.server.once("connection", () => {
+        setTimeout(() => {
+            liveReloadServer.refresh("/");
+        }, 50);
+    });
+    app.use(connectLiveReload());
+}
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
