@@ -22,7 +22,6 @@
     "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.0.0",
     "gulp-terser": "^2.1.0",
-    "livereload": "^0.9.3",
-    "sass": "^1.42.1"
+    "sass": "^1.43.3"
   }
 }
