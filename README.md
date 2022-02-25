@@ -2,6 +2,6 @@
 
 Get started quickly!
 
-Using EJS, NodeJS and Webpack for SCSS
+Using EJS, NodeJS and Gulp for SCSS
 
 Use `npm run dev`
